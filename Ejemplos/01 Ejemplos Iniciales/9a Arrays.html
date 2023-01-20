@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <script>
+        let miVector = [];  //o miVector=new Array();
+        miVector[0] = 22;
+        miVector[1] = 12;
+        miVector[2] = 33;
+        console.log("MIVECTOR ES " + miVector);
+        console.log(miVector);
+        //Array en una línea inicializando elementos
+        let otroArray = [1, 2, "Carcamusa"];
+
+        console.log("MIVECTOR[1] ES " + miVector[1]);
+        console.log("OTROARRAY[2] ES " + otroArray[2]);
+        console.log("MIVECTOR ES " + miVector + " con longitud=" + miVector.length);
+        let matrizBi = new Array(5).fill().map(x => new Array(4));
+        let miArray = { ...miVector };
+        console.log(miArray)
+        console.log("JSON.stringify "); console.log(JSON.stringify(miArray))
+        let miNuevoArray = JSON.parse(JSON.stringify(miArray));
+    </script>
+</body>
+
+</html>

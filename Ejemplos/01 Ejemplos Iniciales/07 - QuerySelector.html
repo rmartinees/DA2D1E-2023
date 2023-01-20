@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>El Objeto Documento</h1>
+    <h2>El Método querySelector()</h2>
+
+    <h3>Añade un fondo de color al primer elemento p:</h3>
+    <p>Primer elemento p, en verde.</p>
+    <p>Segundo elemento p, sin color.</p>
+
+    <p class="ejemplo">Soy un párrafo, ROJO.</p>
+    <p class="ejemplo">Y yo, discriminado, también soy un párrafo, sin color.</p>
+
+    <script>
+        document.querySelector("p").style.backgroundColor = "green";
+        document.querySelector(".ejemplo").style.backgroundColor = "red"; 
+        document.querySelector("h3,h2").style.backgroundColor = "yellow";
+    </script>
+
+    <noscript>Sorry, your browser does not support JavaScript!</noscript>
+</body>
+
+</html>

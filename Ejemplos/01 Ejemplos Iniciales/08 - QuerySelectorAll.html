@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #miDIV {
+            border: 1px solid black;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="miDIV">
+        <h2 class="ejemplo">Una cabecera con clase="ejemplo" in div</h2>
+        <p class="ejemplo">A paragraph with class="ejemplo" in div.</p>
+        <p class="ejemplo">Al clicar el botón añades diferentes colores de fondo a los dos primeros elementos del div
+            con class="ejemplo" (index 0).</p>
+    </div>
+
+    <button onclick="miFuncion()">Try it</button>
+
+    <script>
+        function miFuncion() {
+            var x = document.getElementById("miDIV").querySelectorAll(".ejemplo");
+            x[0].style.backgroundColor = "red";
+            x[1].style.backgroundColor = "green";
+        }
+    </script>
+
+</body>
+
+</html>

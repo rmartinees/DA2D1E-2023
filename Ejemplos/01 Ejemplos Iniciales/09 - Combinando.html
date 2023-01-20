@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #miDIV {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="miDIV">
+        <h2 class="ejemplo">Una cabecera de clase="ejemplo" en div <button onclick="miFuncion1()">Cámbiame</button>  </h2>
+        <p class="ejemplo">Un párrafo de clase="ejemplo" en div.  <button onclick="miFuncion2()">Cámbiame</button>   </p>
+        <p id="demo">Un elemento p con id="demo" en un div. <button onclick="miFuncion3()">Pruébalo</button>          </p>
+    </div>
+
+    <script>
+        function miFuncion1() {
+            var x = document.getElementById("miDIV");
+            x.querySelector(".ejemplo").innerHTML = "¡Hola DW2E!";
+        }
+        function miFuncion2() {
+            var x = document.getElementById("miDIV");
+            x.querySelector(".ejemplo").innerHTML = "¡Y yo también!";
+        }
+        function miFuncion3() {
+            var x = document.getElementById("miDIV");
+            x.querySelector("#demo").textContent = "Por fin, ¡Vacaciones!";
+        }
+    </script>
+
+</body>
+
+</html>

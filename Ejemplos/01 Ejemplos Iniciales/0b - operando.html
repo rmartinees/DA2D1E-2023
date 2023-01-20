@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Operando</title>
+</head>
+
+<body>
+    <label for="fnum1">Número 1:</label>
+    <input type="number" id="fname1" name="fnum1"><br><br>
+    <label for="fnum2">Número 2:</label>
+    <input type="number" id="fname2" name="fnum2"><br><br>
+    <button onclick="operar(1)">Multiplicar</button>
+    <button onclick="operar(2)">Dividir</button>
+    </br></br>
+    Resultado: <span id="Res"></span>
+
+    <script>
+        num1 = document.getElementById("fname1")
+        num2 = document.getElementById("fname2")
+        res = document.getElementById("Res")
+
+        function operar(tipo) {
+            res.textContent = tipo == 1 ? num1.value * num2.value : num1.value / num2.value;
+        }
+
+    </script>
+    <noscript>
+        Tronco activa el js
+    </noscript>
+</body>
+
+</html>
