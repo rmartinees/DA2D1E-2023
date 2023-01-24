@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--The onBlur event fires for an element if that element had the focus, but loses it.
+    The onFocusOut event fires in this case, but also triggers if any child element loses focus.
+    -->
+
+    Dato1:<input type="text" id="undato" onfocusout="myFunction1()"> </br>
+    Dato1:<input type="text" id="undato2" onblur="document.getElementById('undato2').value=document.getElementById('undato2').value.toUpperCase();">
+    <script>
+        function myFunction1() {
+            var x = document.getElementById("undato");
+            x.value = x.value.toUpperCase();
+        }
+    </script>
+</body>
+
+</html>
