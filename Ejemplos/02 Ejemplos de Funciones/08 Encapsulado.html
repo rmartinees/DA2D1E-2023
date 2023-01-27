@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function valorEncapsulado(n) {
+            let local = n;
+            return () => local;
+        }
+        let valorUno = valorEncapsulado(1);
+        let valorDos = valorEncapsulado(2);
+        console.log(valorUno());
+        console.log(valorDos());
+
+        function multiplicador(factor) {
+            return numero => numero * factor;
+        }
+        let doble = multiplicador(2);
+        console.log(doble(5));
+    </script>
+</body>
+
+</html>

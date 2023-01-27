@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const potencia = (base, exponente) => {
+            let resultado = 1;
+            for (let cuenta = 0; cuenta < exponente; cuenta++) {
+                resultado *= base;
+            }
+            return resultado;
+        };
+        console.log(potencia(2, 3))
+
+        const cuadrado1 = (x) => { return x * x; };
+        const cuadrado2 = x => x * x;
+        const bocina = () => {
+            console.log("Meec");
+        };
+        
+    </script>
+</body>
+
+</html>
