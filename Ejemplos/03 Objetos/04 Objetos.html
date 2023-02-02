@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Creamos objeto con  { }"
+        let dia = {
+            ardilla: false,
+            eventos: ["trabaja", "toca arbol", "pizza", "corre"]
+        };
+        console.log(dia.ardilla);
+        console.log(dia.lobo);
+        dia.lobo = false;
+        console.log(dia.lobo);
+        console.log("Lobo esta?: " + "lobo" in dia)
+        console.log("borro una propiedad")
+        delete dia.lobo;
+        console.log(dia.lobo);
+        console.log("Lobo esta?: " + ("lobo" in dia))
+        //Ojito con los paréntesis
+    </script>
+</body>
+
+</html>

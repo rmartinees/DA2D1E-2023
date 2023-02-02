@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        let nombre = { nombre: "Esteban", edad: 23 };
+        console.log(nombre);
+
+        //Y si recibo un objeto pero sólo quiero trabajar con un elemento puedo hacer:
+         let { edad } = { nombre: "Esteban", edad: 23 };
+        console.log(edad);
+        let { nombre2 } = { nombre2: "Esteban", edad: 23 };
+        console.log(nombre2);
+        //Ojo esto no funciona: Descoméntalo y ejecutalo a ver que pasa. Prueba, p.ej. a ponerle un let
+         //{ nombre3 } = { nombre3: "Esteban", edad: 23 };
+        console.log(nombre3)
+    </script>
+</body>
+
+</html>
