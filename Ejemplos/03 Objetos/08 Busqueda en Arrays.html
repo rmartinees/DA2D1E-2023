@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Busqueda en Arrays
+        console.log([1, 2, 3, "CLARA", 2, 1].indexOf(88));
+        console.log([1, 2, 3, "CLARA", 2, 1].indexOf(2));
+        console.log([1, 2, 3, "CLARA", 2, 1].lastIndexOf(2));
+        console.log([1, 2, 3, "CLARA", 2, 1].indexOf("CLARA", 3));
+        console.log([1, 2, 3, "CLARA", 2, 1].lastIndexOf(2, 0));
+
+        alert("Seguimos con slices");
+        console.log([0, 1, 2, 3, 4].slice(2, 4));
+        console.log([0, 1, 2, 3, 4].slice(2));
+        alert("Seguimos con slices y concat");
+        function quitar(array, index) {
+            return array.slice(0, index).concat(array.slice(index + 1));
+        }
+        console.log(quitar(["a", "b", "c", "d", "e"], 2));
+    </script>
+</body>
+
+</html>

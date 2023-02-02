@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
+
     <script>
         
-        function a(par1, par2) {
-            return par1 + par2;
+        var x=[4,5,6,7,8,9];
+        var y=6;
+        
+        function pepe(a,b){
+            a[3]=48;
+            b=1000;
+            console.log(x[3]);
+            console.log(a[3]);
         }
-        console.log(a(1, 1))
-        console.log(a(1, "a"))
-        console.log(a("1", 4))
-    </script>
-</body>
 
+        pepe(x,y);
+        console.log(x[3]);
+
+    </script>
+    
+</body>
 </html>

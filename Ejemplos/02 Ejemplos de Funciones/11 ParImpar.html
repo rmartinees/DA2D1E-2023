@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            function paridad(numero){
+                if(numero%2==0){
+                    return true;
+                }else{
+                    return false;
+                }
+        }
+
+        
+
+        function num(x,ind){
+            var a="";
+
+            for(let i=0;i<ind;i++){
+                a=a+" ";
+            }
+            a=a+x;
+            console.log(a);
+            if(x>25){
+                return false;
+            }else if (x==25){
+                return true;
+            }
+
+            return num(x+5,ind+2) || num(x*3,ind+2);
+        }
+
+        console.log(num(1,0));
+
+    </script>
+    
+</body>
+</html>

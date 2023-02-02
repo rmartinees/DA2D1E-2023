@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let listaPdte = [];
+        function recordar(tarea) {
+            listaPdte.push(tarea);
+        }
+        function getTarea() {
+            return listaPdte.shift();
+        }
+        function recordarUrgente(tarea) {
+            listaPdte.unshift(tarea);
+        }
+
+        recordar("Ir a clase");
+        recordar("Pasar raices");
+        console.log(listaPdte);
+        recordarUrgente("Ser Empático en clase");
+        console.log(listaPdte);
+        console.log(getTarea());
+        console.log(listaPdte);
+    </script>
+</body>
+
+</html>

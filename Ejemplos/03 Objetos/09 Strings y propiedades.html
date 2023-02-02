@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let kim = "Kim";
+        kim.age = 88;
+        console.log("\nPropiedad String");
+        console.log(kim.age);
+
+        console.log("\nCOCOTERA");
+        console.log("cocotera".slice(4, 7));  //El 7 no está incluido
+        console.log("cocotera".indexOf("e"));
+
+        console.log("\nuno dos tres");
+        console.log("uno dos tres".indexOf("es"));
+
+        // El trim quita "blancos" (espacios, saltos de lineas, tabuladores, etc) del principio y final de un string.
+        console.log("\nTRIM");
+        console.log(" Perfecto \n ".trim());
+        console.log(" Perfecto \n ".trim().length);
+
+        //padStart rellena el principio de un string con un caracter de relleno para la longitud explicitada 
+        console.log("\npadStart");
+        console.log(String(6).padStart(5, "0"));
+
+        //Puedes "separar" un String por cada caracter de relleno que encuentres y volver a juntarlos con join.
+        console.log("\nsplit/join");
+        let frase = "Esperando que suene la maldita campana";
+        let palabras = frase.split(" ");
+        console.log(palabras);
+        //¡Anda, es un array!
+
+        console.log(palabras.join(". "));
+
+        //Tengo que repetir un carácter muchas veces: repeat
+        console.log("\nrepeat");
+        console.log("Estudiar ".repeat(3));
+        let string = "abc";
+        console.log(string.length);
+    </script>
+</body>
+
+</html>

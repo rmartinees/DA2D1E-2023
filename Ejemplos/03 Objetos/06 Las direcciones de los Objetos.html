@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let objeto1 = { valor: 10 };
+        let objeto2 = { valor: "Me van a eliminar" };
+        objeto2 = objeto1;
+        let objeto3 = { valor: 10 };
+        console.log(objeto1 == objeto2);
+        console.log(objeto1 == objeto3);
+        objeto1.valor = 15;
+        console.log("Objeto 2 vale lo mismo que el 1! " + objeto2.valor);
+        console.log(objeto3.valor);
+    </script>
+</body>
+
+</html>

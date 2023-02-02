@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = 9
+        var b = 10, unarray = [1, 2, 3], otroarray = ["jamones", "ibericos"];
+        function modificar(x, y, z, w) {
+            x = x * 2;
+            y = y / 2;
+            z[0] = "Te he cambiado"
+            w = z;
+            w[1] = "Que grande soy"
+        }
+        console.log(`ANTES   a vale ${a}, b ${b},      unarray:  [${unarray}]`)
+        console.log(`ANTES                        otroarray:[${otroarray}]`)
+        modificar(a, b, unarray, otroarray)
+        console.log(`DESPUES a vale ${a}, b ${b},      unarray:  [${unarray}]`)
+        console.log(`DESPUES                      otroarray:[${otroarray}]`)
+        console.log("\nLas variables 'normales' se pasan por valor, los objetos por referencia")
+        console.log("Si te fijas, la w cambia de valor en el código, y de verdad ahi dentro apunta z.");
+        console.log("   Pero solo dentro de la funcion. Afuera otroarray sigue impoluto")
+    </script>
+</body>
+
+</html>
