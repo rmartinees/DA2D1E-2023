@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function potencia(base, exponente) {
+            if (exponente == 0) {
+                return 1;
+            } else {
+                return base * potencia(base, exponente - 1);
+            }
+        }
+
+
+
+        function potenciaEjercicio(x, y, z, w) {
+            if (arguments.length == 0) {
+                return undefined;
+            }else if (arguments.length == 1) {
+                return x * x;
+            }else if (arguments.length == 2) {
+                return potencia(x, y);
+            } else if (arguments.length == 3) {
+                return potencia(potencia(x, y), z);
+            } else if (arguments.length == 4) {
+                return (w, x, y, z) => `${x} ${y} ${potencia(w,x)} ${z}`;
+            }
+        }
+        console.log(potenciaEjercicio());
+        console.log(potenciaEjercicio(2));
+        console.log(potenciaEjercicio(2, 3));
+        console.log(potenciaEjercicio(2, 3, 2));
+        console.log(potenciaEjercicio(1,1,1,1)(1,2,3,4));
+
+    </script>
+
+</body>
+
+</html>
