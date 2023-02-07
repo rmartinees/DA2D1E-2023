@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function repetir(n, action) {
+            for (let i = 0; i < n; i++) {
+                action(i);
+            }
+        }
+        repetir(3, n => {
+            amenosque(n % 2 == 1, () => {
+                console.log(n, "es par");
+            });
+        });
+
+        function amenosque(test, entonces) {
+            if (!test) entonces();
+        }
+
+        
+
+        ["A", "B"].forEach(l => console.log(l));
+
+    </script>
+</body>
+
+</html>
