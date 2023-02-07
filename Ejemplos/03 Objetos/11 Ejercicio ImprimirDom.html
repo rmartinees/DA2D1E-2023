@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        Esto es div 1
+        <div>
+            Y este es el primer hijo del 1
+        </div>
+        <div>
+            YO el segundo, pero soy mejor, tengo un nieto
+            <div>
+                Yo soy el nieto
+            </div>
+        </div>
+    </div>
+    <p id="resultado" />
+    <script>
+        let estructura = {
+            text: "Esto es div 1", hijo1: { text: "Y este es el primer hijo del 1", hijo1: null, hijo2: null },
+            hijo2: { text: "YO el segundo, pero soy mejor, tengo un nieto", hijo1: { text: "Yo soy el nieto", hijo1: null, hijo2: null }, hijo2: null }
+        };
+         
+    </script>
+</body>
+
+</html>
