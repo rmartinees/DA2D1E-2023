@@ -12,6 +12,41 @@
     <script>
         //AQUI TU CODIGO
 
+        function rango(inicio, fin, args) {
+
+            let arrayNumeros = [];
+
+            if (args == undefined) {
+                for (let i = 0; inicio <= fin; i++) {
+                    arrayNumeros[i] = inicio;
+                    inicio++
+                }
+            }else{
+                for(let i=0;inicio>=fin;i++){
+                    arrayNumeros[i]=inicio
+                    inicio--;
+                }
+            }
+
+
+            return arrayNumeros;
+
+        }
+
+
+
+
+        function suma(array) {
+            let resultado = 0;
+            for (let index = 0; index < array.length; index++) {
+                resultado += array[index];
+
+            }
+            return resultado;
+        }
+
+
+
         console.log(rango(1, 10))
         // → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         console.log(rango(5, 2, -1));
