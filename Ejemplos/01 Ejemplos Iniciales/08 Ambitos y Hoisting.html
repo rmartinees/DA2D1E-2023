@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        ejemplo = 3; // Variable no declarada
+        (function show() {
+            if (ejemplo === 3) {
+                var3 = "Existirá fuera de la funcion siempre que no haya var"
+                let var2 = 8;
+                var variable1 = "No Entré";  //Variable que solo pertenece a este ambito
+                soloaqui = 2;   // Variable viva en todo el script
+                ejemplo = 4
+                var var3; //Al poner un var fuera ya no existe (hoisting). Comenta esta linea y mira como cambia
+            }
+            console.log(`Variable1=${variable1} ${var3}`); // variable1 existe aquí, tambien la var3
+            console.log("soloaqui=" + soloaqui); // soloaqui existe aquí
+            try {
+                console.log(var2);  //El let acaba con las {}
+            } catch {
+                console.log("var2 no existe aqui");
+            }
+            console.log("var3 sigue existiendo en toda la funcion " + var3)
+        })();
+        console.log("SOLOAQUI =" + soloaqui); // soloaqui existe aquí: hoisting
+        try {
+            console.log(variable1);// variable1 no existe aquí: el var acaba con la funcion
+        } catch {
+            console.log("variable1 no existe");
+        }
+        try {
+            console.log(var3);  //El var acaba con la funcion 
+        } catch {
+            console.log("var3 no existe aqui");
+        }
+    </script>
+</body>
+
+</html>
