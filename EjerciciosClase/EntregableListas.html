@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+
+        function arrayALista(array) {
+            let lista = {}
+            let p = lista;
+            for (let i = 0; i < array.length; i++) {
+                p.nombre = array[i];
+                p.nota = null;
+                p.sig = i == array.length - 1 ? null : {};
+                p = p.sig;
+            }
+
+
+            return lista;
+
+        }
+
+        function listaAArray(lista) {
+            let array = [];
+            let p = lista;
+            let i = 0;
+
+            while (p != null) {
+                array[i] = p.nombre;
+                i++;
+                p = p.sig;
+            }
+
+            return array;
+        }
+
+        function personaN(lista, n) {
+            let p = lista;
+            let variable = " ";
+            let i = 0;
+
+            while (p != null && i++ != n) {
+                p = p.sig;
+            }
+
+            if(p == null){
+                return "Te has pasado de la lista";
+            }else
+            return p;
+
+        }
+
+        function modifNota(lista,n,nota){
+
+            let p=personaN(lista,n);
+
+            p.nota=nota;
+
+            return p
+            
+        }
+
+
+       
+
+        function añadir(lista,nombre,nota){
+            let listaNueva={
+                nombre:nombre,
+                nota:nota,
+                sig:lista
+
+            };
+
+            return listaNueva;
+            
+        }
+
+       
+
+        console.log(arrayALista(["Marta", "Jorge", "Aitor", "Jorge"]));
+        console.log(listaAArray(arrayALista(["Marta", "Jorge", "Aitor", "Pepe"])));
+        console.log(personaN(arrayALista(["Marta", "Jorge", "Aitor", "Esteban"]), 0));
+        console.log(modifNota(arrayALista(["Marta", "Jorge", "Aitor", "Esteban"]),0,8));
+        console.log(añadir(arrayALista(["Marta", "Jorge", "Aitor", "Esteban"]),"Pepe",3));
+
+
+
+
+    </script>
+
+</body>
+
+</html>
