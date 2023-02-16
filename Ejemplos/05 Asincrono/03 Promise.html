@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let promise = new Promise(function (resolve, reject) {
+            // la función se ejecuta automáticamente cuando se construye la promesa
+            // después de 1 segundo, indica que la tarea está hecha con el resultado "hecho"
+            setTimeout(() => { resolve(44);reject(new Error("JAJA")); resolve("hecho"); }, 1000);
+        });
+        promise.then(
+            (exito) => console.log("Promise devolvió " + exito),
+            (error) => console.log("HERROR " + error)
+        )
+        console.log("Promesa lanzada")
+    </script>
+</body>
+
+</html>

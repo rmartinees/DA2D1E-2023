@@ -12,13 +12,13 @@
     <script>
         function valorEncapsulado(n) {
             let local = n;
-            return () => local;
+            return () => local++;
         }
         let valorUno = valorEncapsulado(1);
         let valorDos = valorEncapsulado(2);
         console.log(valorUno);
         console.log(valorUno());
-        console.log(valorDos());
+        console.log(valorUno());
 
         function multiplicador(factor) {
             return numero => numero * factor;
