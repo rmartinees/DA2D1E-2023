@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio de aparición de los scripts vivos</title>
+    <script src="scripts.js"></script>
+</head>
+
+<body>
+    <script>
+
+        let total = 0, cuenta = 0;
+        for (let script of SCRIPTS) {
+            if (script.living) {
+                total += script.year;
+                cuenta += 1;
+            }
+        }
+        console.log(total / cuenta);
+
+        console.log(SCRIPTS.filter(e => e.living).reduce((a, v) => { a.yr += v.year; a.cuenta++; a.prom = a.yr / a.cuenta; return a }, { yr: 0, cuenta: 0, prom: 0 }).prom)
+
+        function average(array) {
+            return array.reduce((a, b) => a + b) / array.length;
+        }
+        console.log(average(SCRIPTS.filter(s => s.living).map(s => s.year)));
+    </script>
+</body>
+
+</html>

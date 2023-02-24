@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminando Rebotes</title>
+</head>
+
+<body>
+    <textarea>Escribe algo aqui...</textarea>
+    <script>
+        let textarea = document.querySelector("textarea");
+        let timeout;
+        textarea.addEventListener("input", () => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => console.log("Typed!"), 500);
+            //Solo imprime medio segundo despues de parar de escribir
+        });
+    </script>
+
+</body>
+
+</html>

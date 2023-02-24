@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos de Eventos</title>
+</head>
+<button id="bot">Botón</button>
+<body>
+    <script>
+        let but = document.querySelector("button");
+        but.addEventListener("mousedown", evento => {
+            if (evento.button == 0) {
+                console.log("Botón izq");
+            } else if (evento.button == 1) {
+                console.log("Botón Central");
+            } else if (evento.button == 2) {
+                console.log("Botón Derecho");
+            }
+        });
+
+    </script>
+</body>
+
+</html>

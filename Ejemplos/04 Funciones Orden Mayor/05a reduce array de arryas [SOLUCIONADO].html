@@ -5,18 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallina y Huevo</title>
+    <title>Document</title>
 </head>
 
 <body>
     <script>
-        function gallina() {
-            return huevo();
-        }
-        function huevo() {
-            return gallina();
-        }
-        console.log(gallina() + " vino primero.");
+        let aa = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        let j=[]
+        aa.reduce((a, v) => j.push(v.reduce((ac, va) => ac + va)),[]);
+        console.log(j)
 
     </script>
 </body>
