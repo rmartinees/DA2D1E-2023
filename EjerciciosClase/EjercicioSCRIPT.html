@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../Ejemplos/04 Funciones Orden Mayor/scripts.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        let cantidad = SCRIPTS.reduce((a, b) => { if (b.direction == 'ltr') { return a+1 } return a;}, 0)
+        console.log(cantidad)
+
+      
+        //Map -> select
+        //filter -> where
+        //reduce -> acumulador
+        console.log(SCRIPTS.map(e=> e.name).reduce((a,v) => a+1,0));
+
+        console.log(SCRIPTS.reduce((a,v) => a+v.ranges.reduce((x,y) => y[1]-y[0]+x,0),0))
+        console.log(SCRIPTS.reduce((a,e)=> a + e.name[0],""))
+
+        let array=[1,1,1,1,1,1,10,1]
+        console.log(array.filter(e => e%2==0))
+        console.log(array.map(e=>e+3))
+        console.log(array.reduce((a,v)=>a+v))
+
+        console.log(SCRIPTS.filter(e=> e.living).reduce((a,v)=>{a.sumyear+=v.year,a.cont++,a.prom=a.sumyear/a.cont},{sumyear:0,cont:0,prom:0}))
+
+
+    </script>
+
+</body>
+
+</html>

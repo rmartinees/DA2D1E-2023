@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function devolver(){
+        b=[1,2,3,4,5]
+        let k=[];
+        b.forEach(e => { if(e%2==0)  //Si le quiero sumar 3 a cada elemento  e=> e+3
+            k.push(e);
+        });
+        return k
+        }
+
+        // a= e.filter(e=>e.direction=="ltr").map(e=>e.name)
+        // reduce((a,v)=> v+a,0)
+
+        //console.log(devolver());
+
+        let array=[[1,2,3] , [4,5,6] , [7,8,9]]
+        let j=[]
+       // let arraySimple=[1,2,3];
+       // console.log(arraySimple.reduce((a,v)=> v+a,0))
+
+        array.reduce((a,v) => j.push(v.reduce((ac,va)=> ac+va,0)),[]);
+
+        console.log(j)
+
+       
+
+    </script>
+</body>
+</html>
