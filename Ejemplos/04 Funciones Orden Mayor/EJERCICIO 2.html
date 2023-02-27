@@ -9,6 +9,12 @@
 <body>
     <script>
         //TU CODIGO AQUI
+
+        function bucle(inicio,condicion,resta,muestra){
+           for(i=inicio;condicion(i);i=resta(i)){
+            muestra(i);
+           }
+        }
         
         bucle(3, n => n > 0, n => n - 1, console.log);
         // → 3
