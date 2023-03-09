@@ -23,6 +23,8 @@
 
        
         // Ahora con .filter y .reduce y lo que haga falta
+        console.log(SCRIPTS.filter(e => e.living).reduce((a, v) => { a.yr += v.year; a.cuenta++; a.prom= a.yr / a.cuenta;  return a },  {yr: 0, cuenta: 0, prom: 0 }).prom)
+        console.log(SCRIPTS.filter(e => e.living).reduce((a, v) => { a.yr += v.year; a.cuenta++; a.prom = a.yr / a.cuenta; return a }, { yr: 0, cuenta: 0, prom: 0 }).prom)
     </script>
 </body>
 

@@ -1115,6 +1115,8 @@ var SCRIPTS = [
   }
 ];
 
+console.log(SCRIPTS);
+
 // This makes sure the data is exported in node.js —
 // `require('./path/to/scripts.js')` will get you the array.
 if (typeof module != "undefined" && module.exports && (typeof window == "undefined" || window.exports != exports))

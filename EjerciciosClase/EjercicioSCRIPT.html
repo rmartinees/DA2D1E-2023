@@ -30,8 +30,8 @@
         console.log(array.map(e=>e+3))
         console.log(array.reduce((a,v)=>a+v))
 
-        console.log(SCRIPTS.filter(e=> e.living).reduce((a,v)=>{a.sumyear+=v.year,a.cont++,a.prom=a.sumyear/a.cont},{sumyear:0,cont:0,prom:0}))
-
+        console.log(SCRIPTS.filter(e=> e.living).reduce((a, v) => {a.yr += v.year; a.cont++; a.prom= a.yr / a.cont; return a }, {yr: 0, cont: 0, prom: 0 }).prom)
+        
 
     </script>
 
