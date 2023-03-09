@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>El objeto Documento</h1>
+    <h2>El método querySelectorAll()</h2>
+    <p>Añade un fondo de color al primer elemento con clase="ejemplo":</p>
+    <p class="ejemplo">Hola, párrafo1</p>
+    <p class="ejemplo">Hola, párrafo2.</p>
+    <script>
+        const nodeList = document.querySelectorAll(".ejemplo");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.backgroundColor = "red";
+        }
+    </script>
+</body>
+
+</html>
