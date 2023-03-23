@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Prueba Ajax contra github</title>
 </head>
 
 <body>
-    <div>e.g btford
-        <input id="userId" placeholder="Enter User Id" />
+    <div>
+        <input id="userId" placeholder="Pon nombre repositorio Github" />
         <button id="userDetails"> Get User Details </button>
         <button id="repoList"> Get Repositories </button>
     </div>
@@ -39,22 +39,30 @@
                 console.log("request sent succesfully");
             });
             return promiseObj;
-        } document.getElementById("userDetails").addEventListener("click", function () {
-            // git hub url to get btford details
+        }
+
+        document.getElementById("userDetails").addEventListener("click", function () {
             var userId = document.getElementById("userId").value;
             var URL = "https://api.github.com/users/" + userId;
             makeAjaxCall(URL, "GET").then(processUserDetailsResponse, errorHandler);
-        }); document.getElementById("repoList").addEventListener("click", function () {
-            // git hub url to get btford details
+        });
+
+        document.getElementById("repoList").addEventListener("click", function () {
             var userId = document.getElementById("userId").value;
             var URL = "https://api.github.com/users/" + userId + "/repos";
             makeAjaxCall(URL, "GET").then(processRepoListResponse, errorHandler);
-        }); function processUserDetailsResponse(userData) {
-            console.log("render user details", userData);
-        } function processRepoListResponse(repoList) {
-            console.log("render repo list", repoList);
-        } function errorHandler(statusCode) {
-            console.log("failed with status", status);
+        });
+
+        function processUserDetailsResponse(userData) {
+            console.log("Mosrrando detalles de usuario", userData);
+        }
+        
+        function processRepoListResponse(repoList) {
+            console.log("Mostrando repositorios", repoList);
+        }
+
+        function errorHandler(statusCode) {
+            console.log("Fallo en la búsqueda", status);
         }
     </script>
 </body>
