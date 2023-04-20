@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback hell</title>
+</head>
+
+<body>
+    <script>
+        function operation1(callback1) {
+            // simulate an asynchronous operation
+            setTimeout(function () {
+                callback1("result1");
+            }, 1000);
+        }
+
+        function operation2(callback2) {
+            // simulate another asynchronous operation
+            setTimeout(function () {
+                callback2("result2");
+            }, 2000);
+        }
+
+        // call the two operations and wait for both callbacks
+        operation1(function (result1) {
+            console.log("Received result1:", result1);
+
+            operation2(function (result2) {
+                console.log("Received result2:", result2);
+
+                // do something with both results here
+                console.log("Combined results:", result1, result2);
+            });
+        });
+    </script>
+</body>
+
+</html>

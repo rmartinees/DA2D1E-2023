@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esperando a varios callbacks optimo</title>
+</head>
+
+<body>
+    Rick0: <span id="rick0"></span></br>
+    Rick1: <span id="rick1"></span>
+    <script>
+        var procs = [];
+        procs[0] = { id: "rick0", hechoCallb: 0, timeout: 0 }
+        procs[1] = { id: "rick1", hechoCallb: 0, timeout: 0 }
+
+        procs[0].timeout = llamar(0, "Callback1", callback, 6000 * Math.random())
+        procs[1].timeout = llamar(1, "Callback2", callback, 6000 * Math.random())
+
+        function llamar(iden, text, callback, delay) {
+            document.getElementById(procs[iden].id).textContent = `${iden} --> delay= ${delay}  --> ${text}`
+            return setTimeout(() => callback(text, iden), delay);  //Le paso parámetros al Callback
+            //El return devuelve el evento timeoutalo, asi lo puedo cancelar luego
+        };
+
+        function callback(text, id) {
+            console.log(text)
+            procs[id].hechoCallb = text
+            if (procs[(id + 1) % 2].hechoCallb == 0) { //Mira si ha acabado el otro callback
+                procs[id].timeout = setTimeout(() => callback(text, id), 100); // Código innecesario??
+                document.getElementById(procs[id].id).textContent = "Esperando a " + (id + 1) % 2 + " " + Date();
+            }
+            else
+                yaestan();
+        }
+
+        function yaestan() {
+            console.log("Ya estan")
+            clearTimeout(procs[0].timeout)  // Código innecesario??
+            clearTimeout(procs[1].timeout)  // Código innecesario??
+            document.getElementById(procs[0].id).textContent = procs[0].hechoCallb + " finalizada el " + Date();
+            document.getElementById(procs[1].id).textContent = procs[1].hechoCallb + " finalizada el " + Date();
+        }
+    </script>
+</body>
+
+</html>

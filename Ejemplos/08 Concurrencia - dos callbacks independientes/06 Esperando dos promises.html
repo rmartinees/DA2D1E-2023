@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esperando a dos promises</title>
+</head>
+
+<body>
+    rick1<span id="rick1">.</span><br>
+    rick2<span id="rick2"></span>
+    <script>
+        let promesa = []
+        createPromise(0, "rick1", "Promesa 1", 2000);
+        createPromise(1, "rick2", "Promesa 2", 4000);
+
+        //Creo y ejecuta las Promesas DE FORMA SINCRONA
+        function createPromise(iden, id, text, delay) {
+            promesa[iden] = new Promise(function (myResolve, myReject) {
+                document.getElementById(id).textContent = "Esperando que se resuelva la Promise" + Date();
+                setTimeout(() => {
+                    if (Math.random() < 0.7) {
+                        console.log(text + "acabó");
+                        myResolve([id, text])
+                    } else
+                        myReject([id, "fallo Estrepitoso"]);   //Aleatoriamente funciona o falla
+                }, delay);
+            });
+        }
+        //Testeamos las promises
+        Promise.all([promesa[0], promesa[1]])
+            .then(data => { yaestan(data) })
+            .catch(data => console.log(data))
+            .finally(console.log("Una birra"));
+
+        function yaestan([[id0, txt0], [id1, txt1]]) {
+            document.getElementById(id0).textContent = txt0 + " finalizada el " + Date();
+            document.getElementById(id1).textContent = txt1 + " finalizada el " + Date();
+        }
+    </script>
+</body>
+
+</html>

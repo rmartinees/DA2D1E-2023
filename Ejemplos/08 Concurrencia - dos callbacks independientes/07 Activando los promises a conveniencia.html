@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises dentro de funciones, para no activarlas antes de tiempo</title>
+</head>
+
+<body>
+    <script>
+         function asyncOperation1() {
+            return ("resultado1");
+        }
+
+        function asyncOperation2() {
+            // simulate another asynchronous operation that returns a Promise
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    console.log("PAPI")
+                    resolve("resultado2");
+                }, 2000);
+            });
+        }
+
+        // call both operations and wait for both Promises to resolve
+        Promise.all([asyncOperation1(), asyncOperation2()])
+            .then(function ([result1, result2]) {
+                console.log("Received results:", result1, result2);
+
+                // do something with both results here
+                console.log("Combined results:", result1, result2);
+            })
+            .catch(function (error) {
+                console.log("Error:", error);
+            });
+
+    </script>
+</body>
+
+</html>

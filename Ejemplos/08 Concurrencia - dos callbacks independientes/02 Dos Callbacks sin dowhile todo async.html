@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esperando que acaben dos callbacks/2</title>
+</head>
+
+<body>
+    <p id="p1">-</p>
+    <p id="p2"> </p>
+    <script>
+        verDom1a = 0;
+        verDom2a = 0;
+        let int1 = 0, int2 = 0;
+
+        // funcion con callback
+        function a(callback, text, delay) {
+            setTimeout(callback(text), delay);
+        }
+        // llamada, ejecuta funcion
+        a(verDom1, "Dom1", 2000);
+        a(verDom2, "Dom2", 4000);
+
+        function verDom1(aaa) {
+            verDom1a = 1;
+            console.log(aaa)
+            if (verDom2a == 1) {
+                document.getElementById("p1").innerHTML = aaa + Date();
+            } else
+                int1 = setTimeout((e) => verDom1(aaa), 500)
+        }
+
+        function verDom2(aaa) {
+            verDom2a = 1;
+            console.log(aaa)
+            if (verDom1a == 1) {
+                document.getElementById("p2").innerHTML = aaa + Date();
+            }
+            else
+                int2 = setTimeout((e) => verDom2(aaa), 500)
+        }
+
+    </script>
+
+</body>
+
+</html>
