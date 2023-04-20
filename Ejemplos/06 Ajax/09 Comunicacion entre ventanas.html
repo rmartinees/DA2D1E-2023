@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--https: //parzibyte.me/blog/2020/06/12/comunicacion-ventanas-javascript/ -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padre</title>
+    <style>
+        .spand {display: none}
+    </style>
+</head>
+
+<body>
+    
+    <br>
+    <button id="btnAbrir">Abrir ventana</button>
+    <br><br>
+    <span class="spand">
+    <p>Has abierto la ventana hijo...</p>
+    <input type="text" id="mensaje" placeholder="Mensaje">
+    <button id="btnEnviarMensaje">Enviar mensaje</button>
+    <p id="mensajeRecibido">Aquí aparecerá el mensaje recibido</p>
+    </span>
+</body>
+<script>
+    const btnAbrir = document.getElementById("btnAbrir");
+    const spp = document.querySelector("span");
+    const $mensaje = document.getElementById("mensaje");
+    const $btnEnviarMensaje = document.getElementById("btnEnviarMensaje");
+    const $mensajeRecibido = document.getElementById("mensajeRecibido");
+
+    let ventana;
+    btnAbrir.addEventListener("click", () => {
+        ventana = window.open("./09a.html");
+        spp.classList.toggle("spand");
+    });
+
+    $btnEnviarMensaje.addEventListener("click", () => {
+        let mensaje = $mensaje.value;
+
+        if (!mensaje) {
+            console.log("mensaje vacio")
+            return;
+        }
+        if (ventana) {
+            ventana.establecerMensaje(mensaje);
+        } else console.log("no hay ventana")
+    });
+
+    // Llamada desde la hija
+    function establecerMensaje(mensaje) {
+        $mensajeRecibido.textContent = mensaje;
+    }
+</script>
+
+</html>

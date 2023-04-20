@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Mensaje</title>
+</head>
+
+<body>
+    <h1>Mensajes Enviados</h1>
+    <div id="Mensajs" />
+</body>
+
+<script>
+    message_broadcast({ 'comando': 'reset', 'uid': (new Date).getTime() })
+
+    setInterval(message_broadcast, 1000, { 'comando': 'hazloya', 'uid': (new Date).getTime() });
+    setInterval(message_broadcast, 2000, { 'comando': 'reset', 'uid': (new Date).getTime() });
+    function message_broadcast(enviar) {
+        traza(enviar);
+        localStorage.setItem('mensaje', JSON.stringify(enviar));
+        localStorage.removeItem('mensaje');
+    }
+    function traza(enviar) {
+        const mens = document.getElementById("Mensajs");
+        const p = document.createElement("p");
+        const txt = document.createTextNode(enviar.comando + "-" + enviar.uid + "\n");
+        p.appendChild(txt)
+        mens.appendChild(p)
+    }
+
+</script>
+
+</html>

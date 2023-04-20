@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- === Design by: foolishdeveloper.com ===--->
+    <title>Simple To Do List</title>
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <!--Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="08 estilos.css">
+     
+</head>
+
+<body>
+    <div class="container">
+        <div id="newtask">
+            <input type="text" placeholder="Tarea a añadir..">
+            <button id="push">Añadir</button>
+        </div>
+
+        <div id="tasks" />
+    </div>
+
+
+    <!--Script-->
+    <script type="text/javascript">
+        document.querySelector('#push').onclick = function () {
+            if (document.querySelector('#newtask input').value.length == 0) {
+                alert("Por favor, introduce una Tarea")
+            }
+            else {
+                document.querySelector('#tasks').innerHTML += `
+            <div class="task">
+                <span id="taskname">
+                    ${document.querySelector('#newtask input').value}
+                </span>
+                <button class="delete" onclick="this.parentNode.remove()">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+                <button class="modify" onclick="modif(this.parentNode)">
+                    <i class="far fa-edit"></i>
+                </button>
+            </div> `;
+            }
+        }
+        function modif(ff) {
+            const nuevaTarea = prompt('Modifica la tarea', ff.textContent);
+            if (nuevaTarea !== null && nuevaTarea.trim() !== '') {
+                const nuevoTexto = document.createTextNode(nuevaTarea);
+                const elemento = ff.firstElementChild
+                elemento.replaceChild(nuevoTexto, elemento.firstChild);
+            }
+        }
+    </script>
+</body>
+
+</html>

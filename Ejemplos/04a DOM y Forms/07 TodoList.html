@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Todo</title>
+</head>
+
+<body>
+
+    <h1>Lista de Acciones a hacer</h1>
+    <input type="text" id="tareas" placeholder="Tarea?">
+    <button id="boton-anadir">Añadir Tarea</button>
+    <ul id="lista-tareas">
+    </ul>
+    <script>
+        const inputTareas = document.getElementById('tareas');
+        const botonAnadir = document.getElementById('boton-anadir');
+        const listaTareas = document.getElementById('lista-tareas');
+
+        let tareas = [];
+
+        botonAnadir.addEventListener('click', () => {
+            const taskText = inputTareas.value.trim();
+            tareas.push(taskText);
+            inputTareas.value = '';
+            mostrarTareas();
+        });
+
+
+        function mostrarTareas() {
+            listaTareas.innerHTML = '';
+
+            tareas.forEach((tarea, i) => {
+                const li = document.createElement('li');
+                li.innerText = tarea;
+                listaTareas.appendChild(li);
+
+                var bot_elim = document.createElement('button');
+                bot_elim.innerText = "Elim";
+                var bot_mod = document.createElement('button');
+                bot_mod.innerText = "Mod";
+
+                bot_mod.addEventListener('click', () => {
+                    const nuevaTarea = prompt('Modifica la tarea', tarea);
+
+                    if (nuevaTarea !== null && nuevaTarea.trim() !== '') {
+                        tareas[i] = nuevaTarea.trim();
+                        mostrarTareas();
+                    }
+                });
+
+                bot_elim.addEventListener('click', () => {
+                    tareas = tareas.filter(t => t !== tarea);
+                    mostrarTareas();
+                });
+
+                li.appendChild(bot_mod);
+                li.appendChild(bot_elim);
+                listaTareas.appendChild(li);
+            });
+        }
+    </script>
+</body>
+
+</html>

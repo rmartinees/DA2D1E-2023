@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicar - Enviar</title>
+</head>
+
+<body>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API">Broadcast Cahnennl Api</a>
+    <h1>Mensajes Enviados</h1>
+    <div id="Mens" />
+
+</body>
+<script>
+    var bc = new BroadcastChannel('canal_comunic');
+    j = 0;
+    const txt = 'A ver si te enteras.'
+    setInterval(enviar, 1000, txt);
+
+    function enviar(txt) {
+        var texto = ++j + " "+ txt + " " + (new Date).getTime() ;
+       
+        bc.postMessage(texto);   //ENVIANDO!!!
+
+        const div = document.getElementById("Mens");
+        div.innerHTML += `<p> ${texto} </p>`
+    }
+
+</script>
+
+</html>

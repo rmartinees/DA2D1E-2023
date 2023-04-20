@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax simulado</title>
+</head>
+
+<body>
+    <label for="busqueda">Buscar:</label>
+    <input type="text" id="busqueda">
+    <ul id="sugerencias"></ul>
+
+    <script>
+        const buscarInput = document.querySelector('#busqueda');
+        const listaSugerencias = document.querySelector('#sugerencias');
+
+        buscarInput.addEventListener('input', busqueda);
+
+        function busqueda() {
+            const textoBuscado = buscarInput.value;
+            if (textoBuscado.trim().length > 0) {
+                getSugerencias(textoBuscado)
+                    .then(mostrarSugerencias)
+                    .catch(gestionarError);
+            } else {
+                limpiarSugerencias();
+            }
+        }
+
+        function getSugerencias(textoBuscado) {
+            return new Promise((resolve, reject) => {
+                // Peticion asincrona para obtener sugerencias y resolver la promesa con
+                // los resultados. Aqui se devuelven sugerencias estáticas.
+                const sugerencias = ['Prod1', 'Prrod2', 'Pprod3', 'Clara', 'IES'];
+                const sugerenciasFiltradas = sugerencias.filter(sugerencia =>
+                    sugerencia.toLowerCase().startsWith(textoBuscado.toLowerCase())
+                );
+                resolve(sugerenciasFiltradas);
+            });
+        }
+
+        function mostrarSugerencias(sugerencias) {
+            listaSugerencias.innerHTML = '';
+            sugerencias.forEach(sugerencia => {
+                const li = document.createElement('li');
+                li.textContent = sugerencia;
+                listaSugerencias.appendChild(li);
+            });
+        }
+
+        function gestionarError(error) {
+            console.error(error);
+        }
+
+        function limpiarSugerencias() {
+            listaSugerencias.innerHTML = '';
+        }
+
+    </script>
+</body>
+
+</html>

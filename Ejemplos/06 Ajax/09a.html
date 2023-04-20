@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hijo</title>
+</head>
+
+<body>
+    <input type="text" id="mensaje" placeholder="Enviar al padre">&nbsp;
+    <button id="btnEnviar">Enviar</button>
+    <br>
+    <p id="mensajeRecibido">Aquí aparece el mensaje recibido</p>
+</body>
+<script>
+    const $btnEnviar = document.getElementById("btnEnviar");
+    const $mensaje = document.getElementById("mensaje");
+    const $mensajeRecibido = document.getElementById("mensajeRecibido");
+
+    $btnEnviar.addEventListener("click", () => {
+        const mensaje = $mensaje.value;
+        if (!mensaje) return alert("Escribe un mensaje");
+        if (window.opener) {
+            window.opener.establecerMensaje(mensaje);
+        }
+    });
+
+    // Definición de función desde la que nos llama el padre
+    window.establecerMensaje = function (mensaje) {
+        $mensajeRecibido.textContent = mensaje;
+    }
+</script>
+
+</html>
