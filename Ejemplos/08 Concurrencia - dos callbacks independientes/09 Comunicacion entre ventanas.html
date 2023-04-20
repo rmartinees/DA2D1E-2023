@@ -45,12 +45,12 @@
             return;
         }
         if (ventana) {
-            ventana.establecerMensaje(mensaje);
+            ventana.MensajeAlHijo(mensaje);
         } else console.log("no hay ventana")
     });
 
     // Llamada desde la hija
-    function establecerMensaje(mensaje) {
+    function MensajeAlPadre(mensaje) {
         $mensajeRecibido.textContent = mensaje;
     }
 </script>

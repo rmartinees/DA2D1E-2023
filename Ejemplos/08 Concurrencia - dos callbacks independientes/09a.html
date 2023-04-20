@@ -23,12 +23,12 @@
         const mensaje = $mensaje.value;
         if (!mensaje) return alert("Escribe un mensaje");
         if (window.opener) {
-            window.opener.establecerMensaje(mensaje);
+            window.opener.MensajeAlPadre(mensaje);
         }
     });
 
     // Definición de función desde la que nos llama el padre
-    window.establecerMensaje = function (mensaje) {
+    window.MensajeAlHijo = function (mensaje) {
         $mensajeRecibido.textContent = mensaje;
     }
 </script>
