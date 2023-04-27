@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases y Propiedades</title>
+</head>
+
+<body>
+    <script>
+        class Conejo {
+            constructor(tipo) {
+                this.tipo = tipo;
+            }
+            hablar(linea) {
+                console.log(`El conejo ${this.tipo} dice '${linea}'`);
+            }
+        }
+
+        let conejoMatador = new Conejo("matador");
+        let conejoNegro = new Conejo("negro");
+        conejoNegro.hablar("hola matador")
+
+        //Modificando Propiedades
+        Conejo.prototype.dientes = "pequeños";
+        console.log("ConejoMatador (defecto) " + conejoMatador.dientes);
+        conejoMatador.dientes = "largos, afilados, sangrientos";
+        console.log("ConejoMatador (modificado) " + conejoMatador.dientes);
+        console.log("ConejoNgro (defecto) " + conejoNegro.dientes);
+        console.log("Conejo.prootype " + Conejo.prototype.dientes);
+// → pequeños
+
+
+    </script>
+</body>
+
+</html>

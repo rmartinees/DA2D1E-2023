@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clase Temperatura</title>
+</head>
+
+<body>
+    <script>
+        class Temperatura {
+            constructor(celsius) {
+                this.celsius = celsius;
+            }
+            get fahrenheit() {
+                return this.celsius * 1.8 + 32;
+            }
+            set fahrenheit(valor) {
+                this.celsius = (valor - 32) / 1.8;
+            }
+            static deFahrenheit(valor) {
+                return new Temperatura((valor - 32) / 1.8);
+            }
+        }
+        let temp = new Temperatura(22);
+        console.log(temp.fahrenheit);
+        temp.fahrenheit = 86;
+        console.log(temp.celsius);
+        console.log("La funcion estática la puedo invocar usando el nombre de la clase")
+        console.log(Temperatura.deFahrenheit(86))
+        console.log("Pero asi da un error")
+        console.log(temp.deFahrenheit(86))
+
+    </script>
+</body>
+
+</html>
