@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js"></script>
+
+    <title>Observables</title>
+</head>
+
+<body>
+    <input type="button" value="pulsar" id="miboton" />
+
+    <script>
+        window.onload = function () {
+            var boton = document.getElementById('miboton');
+            var pulsaciones = rxjs.fromEvent(boton, 'click');
+            pulsaciones.subscribe(e => {
+                var today = new Date();
+                var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                console.log("100 mas a las " + time);
+            });
+
+        }
+    </script>
+</body>
+
+</html>
